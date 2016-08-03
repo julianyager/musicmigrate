@@ -26,7 +26,7 @@ class CreateMusicAdsTable extends Migration
 			//ad info within ads table
 			$table->string('title');
 			$table->timestamps();
-			$table->timestamps('expire_on');
+			$table->timestamp('expire_on');
 			$table->mediumText('description');
 			$table->boolean('active');
 
