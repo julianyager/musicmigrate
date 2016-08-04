@@ -3,6 +3,12 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/*
+	https://github.com/TimothyDJones/awesome-laravel
+	https://github.com/TimothyDJones/awesome-laravel#packages
+ */
+
+
 class CreateUsersTable extends Migration
 {
     /**
