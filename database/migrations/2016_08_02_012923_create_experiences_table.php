@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicProvinceTable extends Migration
+class CreateExperiencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,9 @@ class CreateMusicProvinceTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinces', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
-
-			//fk
-			$table->integer('country_id')
-			->unsigned()
-			->foreign('country_id')
-			->references('id')
-			->on('countrys');
-
+			$table->string('years');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ class CreateMusicProvinceTable extends Migration
      */
     public function down()
     {
-        Schema::drop('province');
+        Schema::drop('experiences');
     }
 }

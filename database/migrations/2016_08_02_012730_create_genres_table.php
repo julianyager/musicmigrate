@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicExperiencesTable extends Migration
+class CreateGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateMusicExperiencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('experiences', function (Blueprint $table) {
+        Schema::create('genres', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('years');
+			$table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateMusicExperiencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('experience');
+        Schema::drop('genres');
     }
 }

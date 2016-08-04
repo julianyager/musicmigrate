@@ -3,25 +3,29 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicCityTable extends Migration
+class CreateCountriesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+
+	 /*
+
+	 	foreign keys to country are, Country -> Province -> City;
+
+	  */
+
     public function up()
     {
-        Schema::create('citys', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
+
 			$table->string('name');
 
-			//fk
-			$table->integer('province_id')
-			->unsigned()
-			->foreign('province_id')
-			->references('id')
-			->on('provinces');
+			//shortened name of the country
+			$table->string('short_name');
 
             $table->timestamps();
         });
@@ -34,6 +38,6 @@ class CreateMusicCityTable extends Migration
      */
     public function down()
     {
-        Schema::drop('city');
+        Schema::drop('countries');
     }
 }

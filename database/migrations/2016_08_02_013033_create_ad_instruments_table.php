@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicAdInstrument extends Migration
+class CreateAdInstrumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,21 +12,21 @@ class CreateMusicAdInstrument extends Migration
      */
     public function up()
     {
-        Schema::create('ad_instrument', function (Blueprint $table) {
+        Schema::create('ad_instruments', function (Blueprint $table) {
             $table->increments('id');
 
 			//fk
 			$table->integer('ad_id')
-			->unsigned()
-			->foreign('ad_id')
-			->references('id')
-			->on('ads');
+					->unsigned()
+					->foreign('ad_id')
+					->references('id')
+					->on('ads');
 
 			$table->integer('instrument_id')
-			->unsigned()
-			->foreign('instrument_id')
-			->references('id')
-			->on('instruments');
+					->unsigned()
+					->foreign('instrument_id')
+					->references('id')
+					->on('instruments');
 
             $table->timestamps();
         });
@@ -39,6 +39,6 @@ class CreateMusicAdInstrument extends Migration
      */
     public function down()
     {
-        Schema::drop('ad_instrument');
+        Schema::drop('ad_instruments');
     }
 }

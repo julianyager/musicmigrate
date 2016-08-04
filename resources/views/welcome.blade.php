@@ -1,3 +1,6 @@
+
+{{ dd($user) }}
+
 <!DOCTYPE html>
 <html>
     <head>

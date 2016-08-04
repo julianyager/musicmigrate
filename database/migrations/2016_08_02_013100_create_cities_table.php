@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicGenresTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,17 @@ class CreateMusicGenresTable extends Migration
      */
     public function up()
     {
-        Schema::create('genres', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('name');
+
+			//fk
+			$table->integer('province_id')
+					->unsigned()
+					->foreign('province_id')
+					->references('id')
+					->on('provinces');
+
             $table->timestamps();
         });
     }
@@ -26,6 +34,6 @@ class CreateMusicGenresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('genres');
+        Schema::drop('cities');
     }
 }

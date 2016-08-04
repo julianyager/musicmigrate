@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicInstrumentsTable extends Migration
+class CreateInstrumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,6 +26,6 @@ class CreateMusicInstrumentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('instrument');
+        Schema::drop('instruments');
     }
 }

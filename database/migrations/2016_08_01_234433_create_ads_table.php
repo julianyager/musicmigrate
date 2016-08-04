@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMusicAdsTable extends Migration
+class CreateAdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,11 +17,11 @@ class CreateMusicAdsTable extends Migration
             $table->increments('id');
 
 			$table->integer('user_id')
-			->unsigned()
-			->foreign('user_id')
-			->references('id')
-			->on('users')
-			->onDelete('cascade');
+					->unsigned()
+					->foreign('user_id')
+					->references('id')
+					->on('users')
+					->onDelete('cascade');
 
 			//ad info within ads table
 			$table->string('title');
@@ -32,23 +32,23 @@ class CreateMusicAdsTable extends Migration
 
 			//foreign keys for any other relevant information for ad
 			$table->integer('genre_id')
-			->unsigned()
-			->foreign('genre_id')
-			->references('id')
-			->on('experience');
+					->unsigned()
+					->foreign('genre_id')
+					->references('id')
+					->on('experience');
 
 			$table->integer('city_id')
-			->unsigned()
-			->foreign('city_id')
-			->references('id')
-			->on('city');
+					->unsigned()
+					->foreign('city_id')
+					->references('id')
+					->on('city');
 
 
 			$table->integer('province_id')
-			->unsigned()
-			->foreign('province_id')
-			->references('id')
-			->on('province');
+					->unsigned()
+					->foreign('province_id')
+					->references('id')
+					->on('province');
         });
     }
 
