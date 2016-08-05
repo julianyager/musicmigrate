@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/musicmigrate":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/musicmigrate","hostpath":"C:/Users/Julian/Documents/GitHub/musicmigrate","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Julian/Documents/GitHub/musicmigrate","disabled":false,"__vagrantfile":true}}}
