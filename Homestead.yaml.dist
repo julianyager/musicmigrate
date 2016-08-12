@@ -14,10 +14,14 @@ keys:
 folders:
     - map: "C:/Users/Julian/Documents/GitHub/musicmigrate"
       to: "/home/vagrant/musicmigrate"
+    - map: "C:/Users/Julian/Documents/GitHub/musicmigrate/.homestead/phpmyadmin-placeholder"
+      to: "/home/vagrant/phpmyadmin"
 
 sites:
     - map: musicmigrate.dev
       to: "/home/vagrant/musicmigrate/public"
+    - map: phpmyadmin.dev
+      to: "/home/vagrant/phpmyadmin"
 
 databases:
     - homestead

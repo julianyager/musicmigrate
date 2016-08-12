@@ -4,3 +4,10 @@
 Homestead.yaml
 Homestead.json
 .env
+/.homestead/phpmyadmin-placeholder/*
+!/.homestead/phpmyadmin-placeholder/.placeholder
+.vagrant
+composer.lock
+.DS_Store
+Thumbs.db
+/vagrant/.vagrant/*
