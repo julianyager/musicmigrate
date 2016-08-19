@@ -7,7 +7,9 @@ Homestead.json
 /.homestead/phpmyadmin-placeholder/*
 !/.homestead/phpmyadmin-placeholder/.placeholder
 .vagrant
-composer.lock
 .DS_Store
 Thumbs.db
 /vagrant/.vagrant/*
+composer.lock
+
+composer.lock
