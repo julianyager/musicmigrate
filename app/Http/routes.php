@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/search', 'SearchController@index');
+
 Route::get('layout', function (){
 	return view('layout');
 });

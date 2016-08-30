@@ -1,4 +1,4 @@
-<!--Once you do, update your local copy, run vagrant destroy -f on your project, and then run vagrant up again and add phpmyadmin.dev into your host file. Shoot me a message if you need help.-->
+face<!--Once you do, update your local copy, run vagrant destroy -f on your project, and then run vagrant up again and add phpmyadmin.dev into your host file. Shoot me a message if you need help.-->
 
 
 @extends('layout')
