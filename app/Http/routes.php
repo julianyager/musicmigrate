@@ -13,7 +13,11 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/search', 'SearchController@index');
+//search controller
+Route::get('search', 'SearchController@index');
+
+//http://stackoverflow.com/questions/26373850/filters-in-laravel-5
+Route::post('search', 'SearchController@postIndex')->middleware('search');
 
 Route::get('layout', function (){
 	return view('layout');

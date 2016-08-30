@@ -7,19 +7,40 @@ face<!--Once you do, update your local copy, run vagrant destroy -f on your proj
 <h1>Search</h1>
 
 <!--routing needed-->
-<form method="POST" action="/">
-	{{ method_field('PATCH') }}
+<form method="POST" action="/search">
+	{{ method_field('POST') }}
 	{{ csrf_field() }}
 
 
 		<div class="form-group">
-				<!--input for database needed-->
-			<input type="text" class="form-control" placeholder="Search for a gig.."><br>
+			<!--input for database needed-->
+			<input type="text" name="keyword" class="form-control" placeholder="Search for a gig.." value="{{ Request::get('keyword') }}"><br>
 		</div>
 
 		<div class="form-group">
-				<button type="submit" class="btn btn-primary"> Search</button>
+			<button type="submit" class="btn btn-primary">Search</button>
 		</div>
 </form>
+
+@if(isset($results))
+
+ 	@if($results->count())
+		<h3>We have {{ $results->count() }} {{ str_plural('result', $results->count()) }}!</h3>
+
+		@foreach($results as $result)
+
+			- {{ $result->title }}<br>
+
+		@endforeach
+
+		<br>
+
+	@else
+
+		No results were found
+
+	@endif
+
+@endif
 
 @stop
