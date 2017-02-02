@@ -160,6 +160,7 @@ return [
 
 		// Custom Providers
 		'Clockwork\Support\Laravel\ClockworkServiceProvider',
+		Laralib\L5scaffold\GeneratorsServiceProvider::class,
 
 	],
 

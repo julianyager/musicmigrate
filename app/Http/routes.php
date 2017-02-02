@@ -13,6 +13,11 @@
 
 Route::get('/', 'HomeController@index');
 
+// -- Admin Related --
+// Route::get('admin', 'UsersController@index');
+// Route::post('admin', 'UsersController@store');
+Route::resource("users","UserController");
+
 //search controller
 Route::get('search', 'SearchController@index');
 

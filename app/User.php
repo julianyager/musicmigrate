@@ -29,10 +29,11 @@ class User extends Authenticatable
 		return $this->hasMany(Ad::class);
 	}
 
-	public function genres()
-	{
-		return $this->hasMany(Genre::class);
-	}
+	// public function genres()
+	// {
+	// 	return $this->hasManyThrough('App\Genre', 'App\Ad');
+	// 	// return $this->hasMany(Genre::class);
+	// }
 
 	public function instruments()
 	{

@@ -16,4 +16,9 @@ class Ad extends Model
 		return $this->belongsToMany(Instrument::class);
 	}
 
+	public function genres()
+	{
+		return $this->hasMany(Genre::class);
+	}
+
 }

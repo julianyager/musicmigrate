@@ -18,7 +18,7 @@ face<!--Once you do, update your local copy, run vagrant destroy -f on your proj
 		</div>
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Search</button>
+			<button type="submit" class="btn btn-primary">Search</button>up
 		</div>
 </form>
 
