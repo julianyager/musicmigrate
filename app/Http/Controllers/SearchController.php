@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ad;
+//use App\Genre;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -23,7 +24,14 @@ class SearchController extends Controller
 		$keyword = $request->get('keyword');
 
 		// Do eloquent search
-		$results = Ad::where('title', 'like', '%' . $keyword . '%')->get();
+		$results = Ad::where('title', 'like', '%' . $keyword . '%')
+						->where('description', 'like', '%' . $keyword . '%')
+						->whereHas('genre', function ($query) use ($keyword) {
+						    $query->where('name', 'like', '%'.$keyword.'%');
+						//})->get();
+					})->toSql();
+
+		//$results = Genre::where('name', 'like', '%' . $keyword . '%')->get();
 
 		// Return view with results
 		return view('search')->withResults($results);

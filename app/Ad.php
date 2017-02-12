@@ -16,9 +16,14 @@ class Ad extends Model
 		return $this->belongsToMany(Instrument::class);
 	}
 
-	public function genres()
+	/**
+	 * Relation - an ad has ONE genre's attached to it
+	 *
+	 * @return object
+	 */
+	public function genre()
 	{
-		return $this->hasMany(Genre::class);
+		return $this->hasOne(Genre::class, 'id', 'genre_id');
 	}
 
 }

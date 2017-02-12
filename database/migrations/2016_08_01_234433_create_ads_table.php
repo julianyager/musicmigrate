@@ -26,7 +26,7 @@ class CreateAdsTable extends Migration
 			//ad info within ads table
 			$table->string('title');
 			$table->timestamps();
-			$table->timestamp('expire_on');
+			$table->timestamp('expire_on')->nullable();
 			$table->mediumText('description');
 			$table->boolean('active');
 

@@ -2,37 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-	public function index()
-	{
-		// Get the first user
-		$user = User::all()->first();
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-		// Get the first ads for this user
-		$ad = $user->ads->first();
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+		$ads = Auth::user()->ads;
 
-		echo "Ad Author: " . $ad->user->name . '<br>';
-		echo "Ad Title: " . $ad->title . '<br>';
-		echo "Ad Description: " . $ad->description . '<br><br>';
+        return view('home')->withAds($ads);
+    }
 
-		// TEST V1: Die and dump all instruments.
-		// dd($ad->instruments);
-
-		// TEST V2: Echo out the instruments and die
-		$i = 1;
-		foreach ($ad->instruments as $instrument) {
-			echo "Instrument #" . $i . " is: " . $instrument->name . '<br>';
-			$i++;
-		}
-		die();
-
-
-		return view('welcome')->withUser($user);
-	}
 }
