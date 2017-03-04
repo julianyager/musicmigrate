@@ -43,11 +43,11 @@ class AdsController extends Controller
 	{
 		$ad = new Ad();
 
-		$ad->user_id = $request->user_id;
 		$ad->title = $request->input("title");
-		$ad->expireon = $request->input("expire_on");
+		
+		//$ad->expire_on = $request->input("expire_on");
 		$ad->description = $request->input("description");
-		$ad->genre->name = $request->input("name");
+		$ad->genre_id = $request->input("name");
 
 		$ad->save();
 

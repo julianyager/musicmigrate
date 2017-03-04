@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(InstrumentTableSeeder::class);
         $this->call(AdTableSeeder::class);
         $this->call(AdInstrumentTableSeeder::class);
+
+		// Seed them roles and permissions
+		$this->call(RolePermissionTableSeeder::class);
     }
 }

@@ -8,6 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+					{{-- Current Permissions are: {{Auth::user()->HasRole}} --}}
                     You are logged in {{ Auth::user()->name }}!
                 </div>
 

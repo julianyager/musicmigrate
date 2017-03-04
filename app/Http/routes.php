@@ -15,9 +15,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
-// -- Admin Related --
-// Route::get('admin', 'UsersController@index');
-// Route::post('admin', 'UsersController@store');
+//CRUD Resources for the following:
 Route::resource("users","UserController");
 Route::resource("ads", "AdsController");
 

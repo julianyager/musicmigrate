@@ -5,8 +5,17 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UserController extends Controller {
+
+class UserController extends Controller
+{
+	public function __construct()
+	{
+		// Role middleware with no specific user permissions
+		// this will make sure they are simply a user with the role of user
+		$this->middleware('role:admin');
+	}
 
 	/**
 	 * Helper function to determine what order is default
@@ -27,6 +36,8 @@ class UserController extends Controller {
 		return (in_array($order, ['asc','desc'])) ? $order : false;
 	}
 
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -34,8 +45,6 @@ class UserController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-
-
 		$sortby = $request->sortby;
 		$sortorder = isset($request->order) ? $request->order : '';
 		$sortorder = $this->validateSortOrder($sortorder);
@@ -85,7 +94,9 @@ class UserController extends Controller {
         $user->email = $request->input("email");
         $user->password = bcrypt($request->input("password"));
 
+
 		$user->save();
+		$user->assignRole('user');
 
 		return redirect()->route('users.index')->with('message', 'Item created successfully.');
 	}

@@ -36,7 +36,7 @@
 
 					{{-- No ads, let's display a message to the user--}}
 					@else
-						You have no ads yet. <a href="{{ route('ads.index') }}">Click here to create one</a>!
+						You have no ads yet. <a href="{{ route('ads.create') }}">Click here to create one</a>!
 					@endif
 	            </div>
 	        </div>
