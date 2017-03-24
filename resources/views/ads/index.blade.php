@@ -14,10 +14,12 @@
 	<div class="container">
 	    <div class="row">
 	        <div class="col-md-12">
+			@if(Auth::check())
 	            @if($ads->count())
 	                <table class="table table-condensed table-striped">
 	                    <thead>
 	                        <tr>
+								@if(Auth::user()->hasRole('admin'))
 	                            <th>Ad ID</th>
 								<th>Ad Title</th>
 								<th>Ad Expiraton</th>
@@ -27,6 +29,7 @@
 								<th>Email</th>
 								<th>Date Created</th>
 								<th>Updated Last</th>
+
 	                            <th class="text-right">OPTIONS</th>
 	                        </tr>
 	                    </thead>
@@ -47,7 +50,6 @@
 									<td> {{ $ad->user_id }} </td>
 									<td> {{ $ad->user->name }} </td>
 									<td> {{ $ad->user->email }} </td>
-									<td> {{ $ad->title }} </td>
 									<td> {{ $ad->user->created_at }} </td>
 									<td> {{ $ad->user->updated_at }} </td>
 	                                <td class="text-right">
@@ -57,17 +59,25 @@
 	                                        <input type="hidden" name="_method" value="DELETE">
 	                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	                                        <button type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+
 	                                    </form>
 	                                </td>
 	                            </tr>
 	                        @endforeach
+							@else
+								Contact the administrator if you are experiencing any <a href="{{ url('/home')}}">problems</a>.
+							@endif
 	                    </tbody>
 	                </table>
 	                {!! $ads->render() !!}
 	            @else
 	                <h3 class="text-center alert alert-info">Empty!</h3>
 	            @endif
-
+			@else
+				<div class="col-md-12 center">
+					You don't have access to this area as a guest. <a href="{{ url('/login')}}">Please login</a>
+				</div>
+			@endif
 	        </div>
     </div>
 

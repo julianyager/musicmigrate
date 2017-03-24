@@ -24,6 +24,8 @@
                             </div>
                         </div>
 
+						{{-- add drop down city, and province--}}
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Email Address</label>
 

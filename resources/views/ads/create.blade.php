@@ -33,17 +33,41 @@
 					@endif
 				</div>
 
-				<div class="form-group @if($errors->has('name')) has-error @endif">
-					<label for="name-field">Genre Name</label>
-					<input type="text" id="name-field" name="name" class="form-control" value="{{ old("name") }}"/>
-					@if($errors->has("name"))
-					<span class="help-block">{{ $errors->first("name") }}</span>
+				<div class="form-group @if($errors->has('genre')) has-error @endif">
+					<label for="name-field">Genre Name
+						<select name="genre" id="name-field" name="genre" class="form-control input-sm" value="{{ old("genre") }}"/>
+							@foreach($genres as $genre)
+							<option value="{{ $genre->id }}">{{ $genre->name }}</option>
+							@endforeach
+						</select>
+					</label>
+					@if($errors->has("genre"))
+					<span class="help-block">{{ $errors->first("genre") }}</span>
 					@endif
 				</div>
 
+				<div class="form-group @if($errors->has('instrument')) has-error @endif">
+					<label for="instrument-field">Instrument
+						<select name="instrument" id="instrument-field" class="form-control input-sm" value="{{ old("instrument") }}"/>
+							@foreach($instruments as $instrument)
+							<option value="{{ $instrument->id }}">{{ $instrument->name }}</option>
+							@endforeach
+						</select>
+					</label>
+					@if($errors->has("instrument"))
+					<span class="help-block">{{ $errors->first("instrument") }}</span>
+					@endif
+				</div>
+
+
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a class="btn btn-link pull-right" href="{{ route('ads.index') }}"><i class="glyphicon glyphicon-backward"></i> Back</a>
+					@if(Auth::user()->hasRole('admin'))
+                    <a class="btn btn-link pull-right" href="{{ route('ads.index') }}"><i class="glyphicon glyphicon-backward"></i>
+					@else
+					<a class="btn btn-link pull-right" href="{{ url('/myads') }}"><i class="glyphicon glyphicon-backward"></i>
+					@endif
+						 Back</a>
                 </div>
             </form>
 
