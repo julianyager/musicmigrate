@@ -22,7 +22,6 @@
 							<p>-
 								<strong>Genre:</strong> {{ $ad->genre->name }}
 							</p>
-
 						</div>
 
 						<div class="panel-footer">

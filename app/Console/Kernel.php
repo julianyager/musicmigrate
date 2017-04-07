@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -22,6 +23,9 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
+	//https://laravel.com/docs/5.2/scheduling
+	//https://laravel.com/docs/5.2/eloquent-mutators#defining-an-accessor
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')

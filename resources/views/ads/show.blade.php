@@ -8,9 +8,23 @@
                 <div class="panel-heading">{{ $ad->title }}</div>
 
 				<div class="panel-body">
-
+					<p>
+						<strong>Description:</strong>
+						{{ $ad->description }}
+					</p>
+					<br>
 					<p>
 						<strong>Genre:</strong> {{ $ad->genre->name }}
+					</p>
+					<p>
+						<strong>Instrument:</strong>
+						@if(count($ad->instruments))
+							@foreach ($ad->instruments as $instrument)
+								{{ $instrument->name }}@if($instrument != $ad->instruments->last()), @endif
+							@endforeach
+						@else
+							None
+						@endif
 					</p>
 
 				</div>

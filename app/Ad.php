@@ -13,7 +13,7 @@ class Ad extends Model
 
 	public function instruments()
 	{
-		return $this->belongsToMany(Instrument::class, 'ad_instrument');
+		return $this->belongsToMany(Instrument::class, 'ad_instrument', 'ad_id', 'instrument_id');
 	}
 
 	/**

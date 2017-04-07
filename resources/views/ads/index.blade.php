@@ -21,7 +21,10 @@
 	                        <tr>
 								@if(Auth::user()->hasRole('admin'))
 	                            <th>Ad ID</th>
+								<th>Active</th>
 								<th>Ad Title</th>
+								<th>Genre</th>
+								<th>Instrument</th>
 								<th>Ad Expiraton</th>
 								<th>Description</th>
 								<th>User ID</th>
@@ -38,7 +41,24 @@
 	                        @foreach($ads as $ad)
 	                            <tr>
 	                                <td>{{ $ad->id }}</td>
+									<td>
+										@if($ad->active !== "0")
+											No
+										@else
+											Yes
+										@endif
+									</td>
 									<td> {{ $ad->title }} </td>
+									<td> {{ $ad->genre->name }} </td>
+									<td>
+										@if(count($ad->instruments))
+											@foreach ($ad->instruments as $instrument)
+												{{ $instrument->name }}@if($instrument != $ad->instruments->last()), @endif
+											@endforeach
+										@else
+											None
+										@endif
+									</td>
 									<td>
 									@if($ad->expire_on !== null)
 										{{ $ad->expire_on }}

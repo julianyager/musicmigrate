@@ -53,26 +53,23 @@ class AdsController extends Controller
 		   'instrument' => 'required'
 	   ]);
 
-	   	//all information to store for your ad
+	   	// Nnew ad instance
 		$ad = new Ad();
 
-		$instrument = new Instrument();
-
+		// Fill out our ad info
 		$ad->title = $request->input("title");
 		$ad->user_id = Auth::id();
-
 		$ad->description = $request->input("description");
 		$ad->genre_id = $request->input("genre");
 
-		$ad = Ad::find(Auth::id());
-
-dd($ad);
-		$ad->instrument()->attach($instrument);
-
-
+		// Save the ad
 		$ad->save();
 
-		return redirect()->route('ads.index')->with('message', 'Item created successfully.');
+		// Attach the instrument
+		$ad->instruments()->attach($request->input("instrument"));
+
+		// Redirect the user
+		return redirect()->route('ads.index')->with('message', 'Ad created successfully.');
 	}
 
 
